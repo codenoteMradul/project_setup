@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
 	validates :name,:password,presence:true
 	validate :age_greater_than
 	validate :email_format
@@ -11,7 +12,7 @@ class User < ApplicationRecord
 	private
 	def age_greater_than
 		if age.present? && age < 18
-		 errors.add(:age,"is not valid")
+		  errors.add(:age,"is not valid")
     end
   end
 
@@ -40,10 +41,8 @@ class User < ApplicationRecord
   end
 
   def email_format
-  	if email.present? 
-  	
+  	if email.present? && !email.match(/\A[a-zA-Z0-9._%+-]+@gmail\.com\z/)
+      errors.add(:email, "must be a valid Gmail address")
   	end
-
   end
-
 end

@@ -1,0 +1,15 @@
+
+<h1>Index</h1>
+ <% @users.each do |user| %> 
+ <p> 
+ 	<%= link_to "showdetails",user %><br>
+ 
+ 	<%= link_to "destroy",users_path(@users),data:{
+ 		turbo_method: :delete
+ 	} %>
+ </p>
+ 
+ <% end %>
+ <p>
+ 	<%= link_to "add new details",new_user_path %>
+ </p>

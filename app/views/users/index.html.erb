@@ -3,17 +3,13 @@
  <% @users.each do |user| %> 
  <p>
  	<%= link_to "showdetails",user %>
-   </p>
-   
+ </p>
  	<%= link_to "destroy",user_path(user),data:{
  		turbo_method: :delete,
  		turbo_confirm: "are you sure?"
  	} %>
- 
-
- 
- <% end %>
-
+  <% end %>
  <p>
  	<%= link_to "add new details",new_user_path %>
  </p>
+

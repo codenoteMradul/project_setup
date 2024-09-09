@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 	
+    after_action :filters,only:[:destroy]
+
 	def index
 		@users = User.all
 	end
@@ -40,6 +42,10 @@ class UsersController < ApplicationController
 
   def strong 
   	params.require(:user).permit(:name,:email,:password,:age,:address) 
+  end
+
+  def filters
+  	@value = "hello"
   end
 
 end

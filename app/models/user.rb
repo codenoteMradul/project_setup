@@ -10,6 +10,7 @@ class User < ApplicationRecord
 	before_update :all_in_uppercase
 
 	private
+
 	def age_greater_than
 		if age.present? && age < 18
 		  errors.add(:age,"is not valid")

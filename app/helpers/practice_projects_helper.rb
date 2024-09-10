@@ -1,0 +1,2 @@
+module PracticeProjectsHelper
+end

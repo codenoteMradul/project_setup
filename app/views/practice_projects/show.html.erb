@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @practice_project %>
+
+<div>
+  <%= link_to "Edit this practice project", edit_practice_project_path(@practice_project) %> |
+  <%= link_to "Back to practice projects", practice_projects_path %>
+
+  <%= button_to "Destroy this practice project", @practice_project, method: :delete %>
+</div>

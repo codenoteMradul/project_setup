@@ -3,7 +3,7 @@
 
 <%= form_with(model: @users) do |form| %>
 
-<div>
+<div id = "input">
 	<%= form.label :name %><br>
 	<%= form.text_area :name %>
 </div>
@@ -28,7 +28,7 @@
 	<%= form.text_area :address %>
 </div>
 
-<div>
+<div id="submit">
 	<%= form.submit %>
 </div>
 

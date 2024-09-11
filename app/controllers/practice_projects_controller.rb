@@ -1,25 +1,20 @@
 class PracticeProjectsController < ApplicationController
   before_action :set_practice_project, only: %i[ show edit update destroy ]
 
-  # GET /practice_projects or /practice_projects.json
   def index
     @practice_projects = PracticeProject.all
   end
 
-  # GET /practice_projects/1 or /practice_projects/1.json
   def show
   end
 
-  # GET /practice_projects/new
   def new
     @practice_project = PracticeProject.new
   end
 
-  # GET /practice_projects/1/edit
   def edit
   end
 
-  # POST /practice_projects or /practice_projects.json
   def create
     @practice_project = PracticeProject.new(practice_project_params)
 
@@ -47,7 +42,6 @@ class PracticeProjectsController < ApplicationController
     end
   end
 
-  # DELETE /practice_projects/1 or /practice_projects/1.json
   def destroy
     @practice_project.destroy!
 
@@ -58,12 +52,10 @@ class PracticeProjectsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_practice_project
       @practice_project = PracticeProject.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def practice_project_params
       params.fetch(:practice_project, {})
     end

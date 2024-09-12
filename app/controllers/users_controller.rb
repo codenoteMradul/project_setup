@@ -37,6 +37,10 @@ class UsersController < ApplicationController
 		@users.destroy
 		redirect_to @users
 	end
+
+	def user_update
+		render json: User.second
+	end
   
   private
 

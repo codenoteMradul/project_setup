@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_10_105553) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_12_080104) do
   create_table "authors", force: :cascade do |t|
     t.string "author_name"
     t.string "bio"
@@ -23,6 +23,51 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_10_105553) do
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "boys", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "dresses", force: :cascade do |t|
+    t.integer "man_id"
+    t.string "shirt"
+    t.string "jeans"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["man_id"], name: "index_dresses_on_man_id"
+  end
+
+  create_table "men", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mobiles", force: :cascade do |t|
+    t.integer "person_id"
+    t.string "company"
+    t.integer "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_mobiles_on_person_id"
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pets", force: :cascade do |t|
+    t.integer "boy_id"
+    t.string "animal"
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["boy_id"], name: "index_pets_on_boy_id"
   end
 
   create_table "practice_projects", force: :cascade do |t|

@@ -8,6 +8,13 @@ Rails.application.routes.draw do
 
   root 'users#index'
   resources :users
+  
+  namespace :api do
+    get 'user_update',  to: 'users#user_update'
+  end
+
+
+  get 'user_update', to: 'users#user_update'
 
   # Defines the root path route ("/")
   # root "posts#index"

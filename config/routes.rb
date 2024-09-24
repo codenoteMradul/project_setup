@@ -13,9 +13,10 @@ Rails.application.routes.draw do
     get 'user_update',  to: 'users#user_update'
   end
 
-
   get 'user_update', to: 'users#user_update'
-
+  get 'users_mail', to: 'users#mail'
+  get 'user_mail', to: 'users#mail'
   # Defines the root path route ("/")
   # root "posts#index"
 end
+  

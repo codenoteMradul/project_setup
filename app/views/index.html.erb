@@ -1,11 +1,2 @@
-
-<h1>Index</h1>
- <% @users.each do |user| %>
- <p>
- 	<%= link_to "show details",user %>
- </p>
- <% end %>
- <p>
- 	<%= link_to "add new details",new_user_path %>
- </p>
-
+<h1>INDEX</h1>
+<%= button_to 'create_new_details',new_crud_path %>

@@ -1,7 +1,7 @@
 
 <h1>Fill The Form</h1>
 
-<%= form_with(model: @users) do |form| %>
+<%= form_with(model: @users, local: false) do |form| %>
 
 <div id = "input">
 	<%= form.label :name %><br>
@@ -29,7 +29,7 @@
 </div>
 
 <div id="submit">
-	<%= form.submit %>
+	<%= form.submit  %>
 </div>
 
 <% end %>

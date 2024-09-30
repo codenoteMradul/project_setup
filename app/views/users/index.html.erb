@@ -2,15 +2,15 @@
 <h1>Index</h1>
  <% @users.each do |user| %> 
  <p>
- 	<%= link_to "showdetails",user %>
+ 	<%= button_to "showdetails",user %>
  </p>
- 	<%= link_to "destroy",user_path(user),data:{
+ 	<%= button_to "destroy",user_path(user),data:{
  		turbo_method: :delete,
  		turbo_confirm: "are you sure?"
  	} %>
   <% end %>
  <p>
- 	<%= link_to "add new details",new_user_path %>
+ 	<%= button_to "add new details",new_user_path %>
  </p>
 
   <h1>Click the Button to Change Background Color</h1>

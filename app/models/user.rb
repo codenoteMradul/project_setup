@@ -1,4 +1,4 @@
-class User < ApplicationRecord
+	class User < ApplicationRecord
 
 	validates :name,:password,presence:true
 	validate :age_greater_than

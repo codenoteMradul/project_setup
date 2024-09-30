@@ -1,3 +1,3 @@
 class Person < ApplicationRecord
-	has_many :mobiles,dependent: :destroy
+	has_many :mobiles,dependent: :destroys
 end

@@ -1,3 +1,3 @@
 class Boy < ApplicationRecord
-	has_many :pets,dependent: :destroy
+	has_one :pets,dependent: :destroy
 end

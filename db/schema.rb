@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_12_080104) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_30_054241) do
+  create_table "appointments", force: :cascade do |t|
+    t.integer "doctor_id"
+    t.integer "patient_id"
+    t.integer "appointment_no"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
+    t.index ["patient_id"], name: "index_appointments_on_patient_id"
+  end
+
   create_table "authors", force: :cascade do |t|
     t.string "author_name"
     t.string "bio"
@@ -31,6 +41,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_12_080104) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.string "cname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "age"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "doctors", force: :cascade do |t|
+    t.string "doctor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "dresses", force: :cascade do |t|
     t.integer "man_id"
     t.string "shirt"
@@ -40,10 +70,21 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_12_080104) do
     t.index ["man_id"], name: "index_dresses_on_man_id"
   end
 
+  create_table "enrollments", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "student_id"
+    t.integer "grade"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_enrollments_on_course_id"
+    t.index ["student_id"], name: "index_enrollments_on_student_id"
+  end
+
   create_table "men", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "gender"
   end
 
   create_table "mobiles", force: :cascade do |t|
@@ -55,8 +96,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_12_080104) do
     t.index ["person_id"], name: "index_mobiles_on_person_id"
   end
 
+  create_table "patients", force: :cascade do |t|
+    t.string "patient"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "people", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "personal_details", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,7 +122,25 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_12_080104) do
     t.index ["boy_id"], name: "index_pets_on_boy_id"
   end
 
+  create_table "practice_authentications", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_practice_authentications_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_practice_authentications_on_reset_password_token", unique: true
+  end
+
   create_table "practice_projects", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "sname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

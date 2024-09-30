@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 	
     after_action :filters,only:[:destroy]
 
+   def mail
+   	@user = User.first
+			UserMailer.welcome_email(@user).deliver_now	
+	end
+
 	def index
 		@users = User.all
 	end
@@ -39,10 +44,14 @@ class UsersController < ApplicationController
 	end
 
 	def user_update
-		render json: User.second
+		render json: User.second	
 	end
   
   private
+
+  # def user_param
+	# 	params.require(:user).permit(:name,:email)
+	# end
 
   def strong 
   	params.require(:user).permit(:name,:email,:password,:age,:address) 
